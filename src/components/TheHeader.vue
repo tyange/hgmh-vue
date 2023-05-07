@@ -1,5 +1,7 @@
-<script setup lang="ts">
-import { RouterLink } from 'vue-router'
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({})
 </script>
 
 <template>
@@ -15,13 +17,13 @@ import { RouterLink } from 'vue-router'
             class="p-2 shadow dropdown-content menu menu-compact bg-base-100 rounded-box w-52"
           >
             <li>
-              <RouterLink to="/to-be-published">출간예정도서</RouterLink>
+              <router-link to="/to-be-published">출간예정도서</router-link>
             </li>
           </ul>
         </label>
       </div>
       <div>
-        <RouterLink to="/">한국문학</RouterLink>
+        <router-link to="/">한국문학</router-link>
       </div>
     </div>
     <div>
