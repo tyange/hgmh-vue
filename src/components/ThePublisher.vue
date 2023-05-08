@@ -1,28 +1,26 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { computed, defineComponent } from 'vue'
+import { useBooksStore } from '@/stores/books'
 
-export default defineComponent({
-  data() {
-    return {}
-  },
-  props: {
-    publisherName: { type: String, required: true },
-    logoImgPath: { type: String }
-  },
-  computed: {
-    altString() {
-      return `${this.publisherName} 로고 이미지`
-    }
-  }
+const props = defineProps<{ publisherId: string; publisherName: string; logoImgPath: string }>()
+
+const altString = computed(() => {
+  return `${props.publisherName} 로고 이미지`
+})
+
+const publisherPath = computed(() => {
+  return `/to-be-published/${props.publisherId}`
 })
 </script>
 
 <template>
   <div
-    class="h-32 w-80 sm:w-96 border border-gray-200 rounded-md shadow-md flex justify-center items-center p-5 cursor-pointer"
+    class="flex items-center justify-center h-32 p-5 border border-gray-200 rounded-md shadow-md cursor-pointer w-80 sm:w-96"
   >
     <div>
-      <img class="w-20" :src="logoImgPath" :alt="altString" />
+      <router-link :to="publisherPath">
+        <img class="w-20" :src="logoImgPath" :alt="altString" />
+      </router-link>
     </div>
   </div>
 </template>

@@ -1,9 +1,3 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({})
-</script>
-
 <template>
   <header class="flex items-center justify-between w-full p-3 shadow-sm">
     <div class="flex gap-5">

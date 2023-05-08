@@ -1,6 +1,4 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
-
+<script setup lang="ts">
 import TheLayout from '@/components/TheLayout.vue'
 import ThePublisher from '@/components/ThePublisher.vue'
 
@@ -9,32 +7,23 @@ import moonjiLogoImg from '../assets/publisher-logo/munhak-jisung-logo.png'
 import changbiLogoImg from '../assets/publisher-logo/chang-bi-logo.png'
 import minumsaLogoImg from '../assets/publisher-logo/minumsa-logo.png'
 
-export default defineComponent({
-  data() {
-    return {
-      publishers: [
-        { publisher: '문학동네', logo: mondongLogoImg },
-        { publisher: '문학과지성사', logo: moonjiLogoImg },
-        { publisher: '창비', logo: changbiLogoImg },
-        { publisher: '민음사', logo: minumsaLogoImg }
-      ]
-    }
-  },
-  components: {
-    TheLayout,
-    ThePublisher
-  }
-})
+const publishers = [
+  { publisherId: 'mundong', publisherName: '문학동네', logo: mondongLogoImg },
+  { publisherId: 'munji', publisherName: '문학과지성사', logo: moonjiLogoImg },
+  { publisherId: 'changbi', publisherName: '창비', logo: changbiLogoImg },
+  { publisherId: 'minumsa', publisherName: '민음사', logo: minumsaLogoImg }
+]
 </script>
 
 <template>
   <the-layout>
-    <div class="h-full flex flex-col justify-between items-center p-10">
+    <div class="flex flex-col items-center justify-between h-full p-10">
       <p class="italic">주요 출판사 출간예정도서</p>
       <the-publisher
         v-for="publisher in publishers"
-        :key="publisher.publisher"
-        :publisher-name="publisher.publisher"
+        :key="publisher.publisherId"
+        :publisher-id="publisher.publisherId"
+        :publisher-name="publisher.publisherName"
         :logo-img-path="publisher.logo"
       />
     </div>

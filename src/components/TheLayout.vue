@@ -1,13 +1,5 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
-
+<script setup lang="ts">
 import TheHeader from './TheHeader.vue'
-
-export default defineComponent({
-  components: {
-    TheHeader
-  }
-})
 </script>
 
 <template>
