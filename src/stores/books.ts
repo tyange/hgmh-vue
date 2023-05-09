@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
 
-interface Book {
+export type Book = {
   PUBLISHER: string
   DDC: string
   UPDATE_DATE: string
@@ -41,7 +41,7 @@ interface Book {
 }
 
 interface InputParams {
-  [key: string]: string | number
+  [key: string]: any
 }
 
 interface ResponseData {
@@ -75,7 +75,7 @@ export const useBooksStore = defineStore({
 
       const url = 'https://www.nl.go.kr/seoji/SearchApi.do'
       const params: {
-        [key: string]: string | number
+        [key: string]: any
       } = {
         page_no: 1,
         page_size: import.meta.env.VITE_PAGE_SIZE,

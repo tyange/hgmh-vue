@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { computed, defineComponent } from 'vue'
-import { useBooksStore } from '@/stores/books'
+import { computed } from 'vue'
 
 const props = defineProps<{ publisherId: string; publisherName: string; logoImgPath: string }>()
 
